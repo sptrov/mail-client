@@ -10,7 +10,7 @@ import { ApiService } from './services/api.service';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  email: EmailModel = new EmailModel(); 
+  email: EmailModel = new EmailModel();
   title = 'mail-client';
   isSingleSchedule = true;
   emailAddresses: String = '';
@@ -23,6 +23,9 @@ export class AppComponent {
   selectedDays = [];
   multiEmailTimePicked;
   numberOfTimes = "1";
+  limit: String = "";
+  limitNever = '';
+  isSelected = true;
 
   daysList = [
     { "id": 0, "itemName": "Sunday", "name": "Sun" },
@@ -45,7 +48,7 @@ export class AppComponent {
   constructor(
     private apiService: ApiService,
     public translate: TranslateService
-  
+
     // public httpService: HttpService
   ) {
     translate.setDefaultLang('en');
@@ -112,24 +115,26 @@ export class AppComponent {
         this.email.schedule.hour = time.getHours().toString();
       }
       this.email.schedule.type = 'recurring'
-     
+
       this.email.schedule.numberOfTimes = this.numberOfTimes;
-      
+
       this.email.schedule.daysOfWeek = daysOfWeekStr;
-      
+
+      this.email.schedule.limit = this.limit;
+
     }
     this.apiService.saveEmailDefinition(this.email).subscribe(
       (result) => {
         window.location.reload();
-        
+
       },
       (errorResponse) => {
         console.log(errorResponse)
       }
     );
-    
+
     console.log(this.email)
 
-    
+
   }
 }

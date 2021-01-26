@@ -15,7 +15,12 @@
 
   "time-month": "Month",
 
-  "time-year": "Year"
+  "time-year": "Year",
+  "never": "Never",
+  "after": "After",
+  "occurances": "occurances"
+
+
 
 
 

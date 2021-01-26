@@ -15,6 +15,7 @@ export class ScheduleModel {
   period: String  = '' //houry daily weekly
   when:String = ''
   type:String = ''
+  limit: String = ''
   // constructor(init?: Object ) {
   //   if (!init) { return; }
   //   DataService.deserializeModel(this, init);

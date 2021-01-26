@@ -89,8 +89,26 @@
             <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
           </div>
 
-        </div>
+          <div>
+            <div class="radio-area">
+                <label>Ends:</label>
+                <div>
+                  <input type="radio" name="limit" id="radiobtn-never" value="" [checked]="isSelected"
+                    [(ngModel)]="limitNever" />
+                  <label for="radiobtn-never">{{ 'never' | translate }}</label>
+                </div>
+                <div>
 
+                  <input type="radio" name="limit" id="radiobtn-after" [checked]="!isSelected"
+                    [(ngModel)]="limitNever" />
+                  <label for="radiobtn-after">{{ 'after' | translate }}</label>
+                  <input class="number-of" type="text" name="limit-occurences" id="limit-occurences"
+                    [(ngModel)]="limit" [disabled]="limitNever" />
+                  <label for="limit-occurences">{{ 'occurances' | translate }}</label>
+                </div>
+            </div>
+          </div>
+        </div>
 
       </div>
       <div class="toast toast--error" *ngIf="error">{{ error }}</div>
