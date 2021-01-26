@@ -1,0 +1,226 @@
+$color-background: rgb(245, 245, 245);
+$color-container-background: rgb(234, 234, 234);
+$color-container-border: rgb(208, 208, 208);
+$color-text-main: rgb(255, 255, 255);
+$color-text-alt: rgb(0, 0, 0);
+$color-text-disabled-main: rgb(150, 150, 150);
+$color-text-disabled-alt: rgb(90, 90, 90);
+$color-table-heading: rgb(236, 236, 236);
+$color-table-row-odd: rgb(255, 255, 255);
+$color-table-row-even: rgb(249, 249, 249);
+$color-table-col-border-odd: rgb(245, 245, 245);
+$color-table-col-border-even: rgb(240, 240, 240);
+$color-table-row-border: rgb(236, 236, 236);
+$color-table-border: rgb(220, 220, 220);
+$color-input-background: rgb(255, 255, 255);
+$color-input-border: rgb(208, 208, 208);
+$color-status-success: rgb(87, 197, 154);
+$color-status-warning: rgb(250, 239, 90);
+$color-status-danger: rgb(241, 0, 61);
+$color-button-background: rgb(213, 213, 213);
+$color-button-border: rgb(193, 193, 193);
+
+
+$media-phone-breakpoint:        576px; // @media (min-width: $media-phone-breakpoint) { width: $media-phone-width; }
+
+$media-tablet-breakpoint:       768px; // @media (min-width: $media-tablet-breakpoint) { width: $media-tablet-width; }
+
+$media-desktop-s-breakpoint:    992px; // @media (min-width: $media-desktop-s-breakpoint) { width: $media-desktop-s-width; }
+
+$media-desktop-l-breakpoint:   1200px; 
+
+
+$color-app-main: rgb(2, 34, 77);
+$box-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
+
+
+
+// generic reset
+* {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+// defaults
+html {
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+input {
+  box-sizing: border-box;
+  padding: 0 .5em;
+  border: 1px solid $color-input-border;
+  border-radius: 0;
+  outline: none;
+  background-color: $color-input-background;
+  line-height: 2em;
+
+  &[disabled] {
+    background-color: $color-input-border;
+  }
+}
+
+button {
+  box-sizing: border-box;
+  padding: 0 1em;
+  border: 1px solid $color-button-border;
+  border-radius: 0;
+  outline: none;
+  background-color: $color-button-background;
+  line-height: 2em;
+  cursor: pointer;
+
+  &[disabled] {
+    color: $color-text-disabled-main;
+  }
+}
+
+// styles
+.page {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  overflow: scroll;
+  background-color: $color-background;
+}
+
+.header {
+  position: relative;
+  padding: 1em;
+  background-color: $color-app-main;
+  color: $color-text-main;
+}
+
+
+
+.form {
+  padding: 1em;
+  border-bottom: 1px solid $color-container-border;
+  background-color: $color-container-background;
+  text-align: center;
+
+
+  .form-container {
+    // display: inline-flex;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    @media (min-width: $media-phone-breakpoint) {
+      width: 90%;
+    }
+
+    @media (min-width: $media-tablet-breakpoint) {
+      width: 360px;
+    }
+
+    @media (min-width: $media-desktop-s-breakpoint) {
+      width: 600px;
+    }
+
+    margin: 0 auto;
+    // text-align: left;
+
+    .textAreas {
+      padding: 10px;
+      margin: 0 auto;
+      textarea { 
+        border-radius: 4px;
+        padding: 10px;
+        width: 90%;
+      }
+    }
+
+    .inputs {
+      flex-grow: 0;
+      flex-shrink: 1;
+    }
+    .inputs-email-to {
+      width: 80%;
+      margin: 0 auto;
+      border-radius: 4px;
+      padding: 3px;
+      margin-bottom: 6px;
+    }
+    .inputs-setting-duration {
+      width: 50px;;
+
+    }
+
+    .buttons {
+      flex-grow: 0;
+      flex-shrink: 1;
+    }
+  }
+
+  .toast {
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: .5em 1em;
+    box-shadow: $box-shadow;
+
+    &--error {
+      background-color: $color-status-danger;
+      color: $color-text-main;
+    }
+
+  }
+
+
+  .switcher {
+    cursor:pointer;
+    color:$color-app-main;
+    text-decoration:underline;
+    padding: 10px 0px;
+    display: block;
+
+    &:hover {
+      text-decoration:none;
+      // text-shadow: 0.5px 0.5px 0.5px #555;
+    }
+  }
+
+  .single-Area,
+  .multi-Area {
+    .scheduler {
+      padding: 10px 0px;
+      label {
+        padding-right: 10px;
+      }
+      select {
+        height: 2em;
+        padding-left: 2px;
+      }
+      .number-of {
+        width: 30px;
+        margin-right: 4px;
+      }
+      .days-picker{
+        padding: 10px 0px;
+
+      }
+      .picker {
+        padding: 10px 0px;
+        width: 200px;
+        margin: 0 auto;
+        cursor: pointer;
+        input {
+          cursor:pointer
+        }
+      }
+    }
+  }
+
+}

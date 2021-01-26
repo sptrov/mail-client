@@ -1,0 +1,24 @@
+{
+  "title": "Pretty Mail Composer",
+  "email-addresses": "To",
+  "email-subject": "Subject",
+
+  "email-message": "Email content ....",
+  "send-email": "Send Email",
+  "scheduler-single":"Switch to Reacurring schedule...",
+  "scheduler-multi":"Switch to Single schedule...",
+  "time-now": "Now",
+  "time-later": "Pick a later time",
+  "time-hour": "Hour",
+  "time-day": "Day",
+  "time-week": "Week",
+
+  "time-month": "Month",
+
+  "time-year": "Year"
+
+
+
+  
+
+}

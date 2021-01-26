@@ -1,0 +1,106 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="page">
+  <div class="header">
+    <h1>{{ 'title' | translate }}</h1>
+  </div>
+
+
+  <div class="form">
+    <div class="form-container">
+
+      <input class="inputs inputs-email-to" type="text" [(ngModel)]="emailAddresses"
+        placeholder="{{ 'email-addresses' | translate }}">
+      <input class="inputs inputs-email-to" type="text" [(ngModel)]="emailSubject"
+        placeholder="{{ 'email-subject' | translate }}">
+
+
+      <!-- <input class="inputs" type="text" [(ngModel)]="producedQuantity"
+        placeholder="{{ 'produced-quantity' | translate }}" [disabled]="!confirmationNumber"
+        (ngModelChange)="validateProducedQuantity()" (change)="validateProducedQuantity()">
+
+      <button class="buttons" (click)="addProducedQuantityPartial()"
+        [disabled]="(!confirmationNumber || !producedQuantity)">
+        {{ 'partial-order' | translate }}
+      </button>
+
+      <button class="buttons" (click)="addProducedQuantityEnd()"
+        [disabled]="(!confirmationNumber || !producedQuantity)">
+        {{ 'complete-order' | translate }}
+      </button> -->
+      <div class="textAreas">
+        <textarea name="message" placeholder="{{ 'email-message' | translate }}" rows="8"
+          [(ngModel)]="emailMessage"></textarea>
+      </div>
+
+
+      <div *ngIf="isSingleSchedule" class="single-Area">
+        <label class="switcher" (click)="switchSchedule()">
+          {{ 'scheduler-single' | translate }}
+        </label>
+        <div class="scheduler">
+          <label for="when">When:</label>
+          <select id="when" name="when" [(ngModel)]="singleNowOrLater" (change)="singleNowOrLaterChanged($event)">
+            <option value="now">{{ 'time-now' | translate }}</option>
+            <option value="later">{{ 'time-later' | translate }}</option>
+
+          </select>
+
+          <div *ngIf="isSingleLater" class="picker">
+            <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" [(ngModel)]="singleEmailDatePicked"
+              placeholder="Pick a time">
+            <owl-date-time #dt1></owl-date-time>
+          </div>
+        </div>
+
+
+      </div>
+
+
+      <div *ngIf="!isSingleSchedule" class="multi-Area">
+
+        <label class="switcher" (click)="switchSchedule()">
+          {{ 'scheduler-multi' | translate }}
+        </label>
+
+
+
+        <div class="scheduler">
+
+          <label for="multi-when">Repeat Every:</label>
+          <input class="number-of" type="text" [(ngModel)]="numberOfTimes" (ngModelChange)="validateNumberOf()"
+            (change)="validateNumberOf()">
+
+          <select id="multi-when" name="multi-when" [(ngModel)]="dayMonthYearPick" (ngModelChange)="validateNumberOf()"
+            (change)="validateNumberOf()">
+            <option value="hour">{{ 'time-hour' | translate }}</option>
+            <option value="day">{{ 'time-day' | translate }}</option>
+            <option value="week">{{ 'time-week' | translate }}</option>
+          </select>
+          <div class="days-picker">
+            <angular2-multiselect *ngIf="dayMonthYearPick == 'week'" [data]="daysList" [(ngModel)]="selectedDays"
+              [settings]="daysListSettings">
+            </angular2-multiselect>
+          </div>
+
+
+          <div *ngIf="dayMonthYearPick != 'hour'">
+            <input [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2" [(ngModel)]="multiEmailTimePicked"
+              placeholder="Pick a time">
+            <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
+          </div>
+
+        </div>
+
+
+      </div>
+      <div class="toast toast--error" *ngIf="error">{{ error }}</div>
+
+
+
+      <button class="buttons" (click)="scheduleEmail()">
+        {{ 'send-email' | translate }}
+      </button>
+    </div>
+
+  </div>
+  <router-outlet></router-outlet>
