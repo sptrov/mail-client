@@ -1,5 +1,3 @@
-// import { DataService } from '../services/data/data.service';
-
 export class ScheduleModel {
 
   second: String = '';
@@ -16,8 +14,4 @@ export class ScheduleModel {
   when:String = ''
   type:String = ''
   limit: String = ''
-  // constructor(init?: Object ) {
-  //   if (!init) { return; }
-  //   DataService.deserializeModel(this, init);
-  // }
 }

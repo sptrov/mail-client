@@ -63,7 +63,7 @@ export class HttpService {
     );
   }
 
-  protected patch(path: string, data: any) { // use for updating a document
+  protected patch(path: string, data: any) { 
     return this.httpClient.patch(
       this.apiURI + path,
       data,
@@ -79,7 +79,7 @@ export class HttpService {
     );
   }
 
-  protected put(path: string, data: any) { // use for replacing a document
+  protected put(path: string, data: any) { 
     return this.httpClient.put(
       this.apiURI + path,
       data,

@@ -6,8 +6,4 @@ export class EmailModel {
   subject: String  = '';
   body: String  = '';
   schedule: ScheduleModel = new ScheduleModel();
-  // constructor(init?: Object ) {
-  //   if (!init) { return; }
-  //   DataService.deserializeModel(this, init);
-  // }
 }

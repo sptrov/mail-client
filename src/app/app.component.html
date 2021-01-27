@@ -1,38 +1,17 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div class="page">
   <div class="header">
     <h1>{{ 'title' | translate }}</h1>
   </div>
-
-
   <div class="form">
     <div class="form-container">
-
       <input class="inputs inputs-email-to" type="text" [(ngModel)]="emailAddresses"
         placeholder="{{ 'email-addresses' | translate }}">
       <input class="inputs inputs-email-to" type="text" [(ngModel)]="emailSubject"
         placeholder="{{ 'email-subject' | translate }}">
-
-
-      <!-- <input class="inputs" type="text" [(ngModel)]="producedQuantity"
-        placeholder="{{ 'produced-quantity' | translate }}" [disabled]="!confirmationNumber"
-        (ngModelChange)="validateProducedQuantity()" (change)="validateProducedQuantity()">
-
-      <button class="buttons" (click)="addProducedQuantityPartial()"
-        [disabled]="(!confirmationNumber || !producedQuantity)">
-        {{ 'partial-order' | translate }}
-      </button>
-
-      <button class="buttons" (click)="addProducedQuantityEnd()"
-        [disabled]="(!confirmationNumber || !producedQuantity)">
-        {{ 'complete-order' | translate }}
-      </button> -->
       <div class="textAreas">
         <textarea name="message" placeholder="{{ 'email-message' | translate }}" rows="8"
           [(ngModel)]="emailMessage"></textarea>
       </div>
-
-
       <div *ngIf="isSingleSchedule" class="single-Area">
         <label class="switcher" (click)="switchSchedule()">
           {{ 'scheduler-single' | translate }}
@@ -42,7 +21,6 @@
           <select id="when" name="when" [(ngModel)]="singleNowOrLater" (change)="singleNowOrLaterChanged($event)">
             <option value="now">{{ 'time-now' | translate }}</option>
             <option value="later">{{ 'time-later' | translate }}</option>
-
           </select>
 
           <div *ngIf="isSingleLater" class="picker">
@@ -51,19 +29,12 @@
             <owl-date-time #dt1></owl-date-time>
           </div>
         </div>
-
-
       </div>
-
-
       <div *ngIf="!isSingleSchedule" class="multi-Area">
 
         <label class="switcher" (click)="switchSchedule()">
           {{ 'scheduler-multi' | translate }}
         </label>
-
-
-
         <div class="scheduler">
 
           <label for="multi-when">Repeat Every:</label>
@@ -86,8 +57,8 @@
 
           <div *ngIf="dayMonthYearPick == 'month'" class="picker">
             <label for="dayOfMonth">Day of the Month:</label>
-            <input class="number-of" name="dayOfMonth" type="text" [(ngModel)]="dayOfTheMonth" (ngModelChange)="validateDayOfTheMonth()"
-              (change)="validateDayOfTheMonth()">
+            <input class="number-of" name="dayOfMonth" type="text" [(ngModel)]="dayOfTheMonth"
+              (ngModelChange)="validateDayOfTheMonth()" (change)="validateDayOfTheMonth()">
           </div>
 
           <div *ngIf="dayMonthYearPick != 'hour'">
@@ -96,38 +67,31 @@
             <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
           </div>
 
-          
-
           <div>
             <div class="radio-area">
-                <label>Ends:</label>
-                <div>
-                  <input type="radio" name="limit" id="radiobtn-never" value="" [checked]="isSelected"
-                    [(ngModel)]="limitNever" />
-                  <label for="radiobtn-never">{{ 'never' | translate }}</label>
-                </div>
-                <div>
+              <label>Ends:</label>
+              <div>
+                <input type="radio" name="limit" id="radiobtn-never" value="" [checked]="isSelected"
+                  [(ngModel)]="limitNever" />
+                <label for="radiobtn-never">{{ 'never' | translate }}</label>
+              </div>
+              <div>
 
-                  <input type="radio" name="limit" id="radiobtn-after" [checked]="!isSelected"
-                    [(ngModel)]="limitNever" />
-                  <label for="radiobtn-after">{{ 'after' | translate }}</label>
-                  <input class="number-of" type="text" name="limit-occurences" id="limit-occurences"
-                    [(ngModel)]="limit" [disabled]="limitNever" />
-                  <label for="limit-occurences">{{ 'occurances' | translate }}</label>
-                </div>
+                <input type="radio" name="limit" id="radiobtn-after" [checked]="!isSelected" [(ngModel)]="limitNever" />
+                <label for="radiobtn-after">{{ 'after' | translate }}</label>
+                <input class="number-of" type="text" name="limit-occurences" id="limit-occurences" [(ngModel)]="limit"
+                  [disabled]="limitNever" />
+                <label for="limit-occurences">{{ 'occurances' | translate }}</label>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
       <div class="toast toast--error" *ngIf="error">{{ error }}</div>
-
-
 
       <button class="buttons" (click)="scheduleEmail()">
         {{ 'send-email' | translate }}
       </button>
     </div>
-
   </div>
   <router-outlet></router-outlet>

@@ -1,9 +1,13 @@
+$color-input-background: rgb(255, 255, 255);
+$color-input-border: rgb(208, 208, 208);
+$color-button-background: rgb(213, 213, 213);
+$color-button-border: rgb(193, 193, 193);
+$color-text-disabled-main: rgb(150, 150, 150);
+$color-text-main: rgb(255, 255, 255);
 $color-background: rgb(245, 245, 245);
 $color-container-background: rgb(234, 234, 234);
 $color-container-border: rgb(208, 208, 208);
-$color-text-main: rgb(255, 255, 255);
 $color-text-alt: rgb(0, 0, 0);
-$color-text-disabled-main: rgb(150, 150, 150);
 $color-text-disabled-alt: rgb(90, 90, 90);
 $color-table-heading: rgb(236, 236, 236);
 $color-table-row-odd: rgb(255, 255, 255);
@@ -12,25 +16,22 @@ $color-table-col-border-odd: rgb(245, 245, 245);
 $color-table-col-border-even: rgb(240, 240, 240);
 $color-table-row-border: rgb(236, 236, 236);
 $color-table-border: rgb(220, 220, 220);
-$color-input-background: rgb(255, 255, 255);
-$color-input-border: rgb(208, 208, 208);
+
 $color-status-success: rgb(87, 197, 154);
 $color-status-warning: rgb(250, 239, 90);
 $color-status-danger: rgb(241, 0, 61);
-$color-button-background: rgb(213, 213, 213);
-$color-button-border: rgb(193, 193, 193);
 
 
-$media-phone-breakpoint:        576px; // @media (min-width: $media-phone-breakpoint) { width: $media-phone-width; }
+$media-phone-breakpoint: 576px; // @media (min-width: $media-phone-breakpoint) { width: $media-phone-width; }
 
-$media-tablet-breakpoint:       768px; // @media (min-width: $media-tablet-breakpoint) { width: $media-tablet-width; }
+$media-tablet-breakpoint: 768px; // @media (min-width: $media-tablet-breakpoint) { width: $media-tablet-width; }
 
-$media-desktop-s-breakpoint:    992px; // @media (min-width: $media-desktop-s-breakpoint) { width: $media-desktop-s-width; }
+$media-desktop-s-breakpoint: 992px; // @media (min-width: $media-desktop-s-breakpoint) { width: $media-desktop-s-width; }
 
-$media-desktop-l-breakpoint:   1200px;
+$media-desktop-l-breakpoint: 1200px;
 
 
-$color-app-main: rgb(2, 34, 77);
+$color-app-main: rgb(37, 78, 133);
 $box-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
 
 
@@ -114,6 +115,7 @@ button {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+
     @media (min-width: $media-phone-breakpoint) {
       width: 90%;
     }
@@ -132,6 +134,7 @@ button {
     .textAreas {
       padding: 10px;
       margin: 0 auto;
+
       textarea {
         border-radius: 4px;
         padding: 10px;
@@ -143,6 +146,7 @@ button {
       flex-grow: 0;
       flex-shrink: 1;
     }
+
     .inputs-email-to {
       width: 80%;
       margin: 0 auto;
@@ -150,8 +154,10 @@ button {
       padding: 3px;
       margin-bottom: 6px;
     }
+
     .inputs-setting-duration {
-      width: 50px;;
+      width: 50px;
+      ;
 
     }
 
@@ -180,14 +186,14 @@ button {
 
 
   .switcher {
-    cursor:pointer;
-    color:$color-app-main;
-    text-decoration:underline;
+    cursor: pointer;
+    color: $color-app-main;
+    text-decoration: underline;
     padding: 10px 0px;
     display: block;
 
     &:hover {
-      text-decoration:none;
+      text-decoration: none;
       // text-shadow: 0.5px 0.5px 0.5px #555;
     }
   }
@@ -196,45 +202,53 @@ button {
   .multi-Area {
     .scheduler {
       padding: 10px 0px;
+
       label {
         padding-right: 10px;
       }
+
       select {
         height: 2em;
         padding-left: 2px;
       }
+
       .number-of {
         width: 40px;
         margin-right: 4px;
       }
-      .days-picker{
+
+      .days-picker {
         padding: 10px 0px;
 
       }
+
       .picker {
         padding: 10px 0px;
         width: 200px;
         margin: 0 auto;
         cursor: pointer;
+
         input {
-          cursor:pointer
+          cursor: pointer
         }
       }
     }
   }
-  .radio-area {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      label {
-        padding:20px 0px;
-      }
-      input[type="radio"]{
-        margin-right: 10px;
-      }
-  }
- 
-  
-}
 
+  .radio-area {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    label {
+      padding: 20px 0px;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+  }
+
+
+}
