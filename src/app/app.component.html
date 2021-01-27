@@ -75,6 +75,8 @@
             <option value="hour">{{ 'time-hour' | translate }}</option>
             <option value="day">{{ 'time-day' | translate }}</option>
             <option value="week">{{ 'time-week' | translate }}</option>
+            <option value="month">{{ 'time-month' | translate }}</option>
+
           </select>
           <div class="days-picker">
             <angular2-multiselect *ngIf="dayMonthYearPick == 'week'" [data]="daysList" [(ngModel)]="selectedDays"
@@ -82,12 +84,19 @@
             </angular2-multiselect>
           </div>
 
+          <div *ngIf="dayMonthYearPick == 'month'" class="picker">
+            <label for="dayOfMonth">Day of the Month:</label>
+            <input class="number-of" name="dayOfMonth" type="text" [(ngModel)]="dayOfTheMonth" (ngModelChange)="validateDayOfTheMonth()"
+              (change)="validateDayOfTheMonth()">
+          </div>
 
           <div *ngIf="dayMonthYearPick != 'hour'">
             <input [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2" [(ngModel)]="multiEmailTimePicked"
               placeholder="Pick a time">
             <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
           </div>
+
+          
 
           <div>
             <div class="radio-area">

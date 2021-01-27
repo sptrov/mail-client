@@ -22,9 +22,10 @@ export class AppComponent {
   dayMonthYearPick: String = "day";
   selectedDays = [];
   multiEmailTimePicked;
-  numberOfTimes = "1";
+  numberOfTimes:String = "1";
+  dayOfTheMonth:String = "1";
   limit: String = "";
-  limitNever = '';
+  limitNever: String = '';
   isSelected = true;
 
   daysList = [
@@ -73,6 +74,14 @@ export class AppComponent {
       }
     });
   }
+  validateDayOfTheMonth(){
+    setTimeout(() => {
+      if (this.dayOfTheMonth  && (+(this.dayOfTheMonth) > 31 
+        || +(this.dayOfTheMonth) < 1) ) {
+        this.dayOfTheMonth = "1";
+      }
+    });
+  }
 
   switchSchedule(event) {
     // event.preventDefaults();
@@ -113,6 +122,10 @@ export class AppComponent {
         this.email.schedule.second = time.getSeconds().toString();
         this.email.schedule.minute = time.getMinutes().toString();
         this.email.schedule.hour = time.getHours().toString();
+      }
+
+      if(this.email.schedule.period == 'month') {
+        this.email.schedule.dayOfMonth = this.dayOfTheMonth;
       }
       this.email.schedule.type = 'recurring'
 
