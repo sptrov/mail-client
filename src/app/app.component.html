@@ -89,7 +89,7 @@
       </div>
       <div class="toast toast--error" *ngIf="error">{{ error }}</div>
 
-      <button class="buttons" (click)="scheduleEmail()">
+      <button class="buttons" (click)="scheduleEmail()" [disabled]="emailAddresses =='' || emailSubject =='' || emailMessage ==''">
         {{ 'send-email' | translate }}
       </button>
     </div>

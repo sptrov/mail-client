@@ -81,6 +81,7 @@ button {
 
   &[disabled] {
     color: $color-text-disabled-main;
+    cursor:not-allowed;
   }
 }
 
